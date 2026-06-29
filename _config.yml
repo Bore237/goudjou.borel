@@ -1,0 +1,84 @@
+# ══════════════════════════════════════════════════════
+#  _config.yml  — GitHub Pages / Jekyll Configuration
+#  Portfolio: Goudjou Borel  ·  ML Engineer · Medical AI
+# ══════════════════════════════════════════════════════
+
+# ── Site identity ──────────────────────────────────────
+title:       "Borel Goudjou — ML Engineer · Medical AI · Computer Vision"
+description: >
+  Ingénieur ML spécialisé en IA médicale, Computer Vision et systèmes
+  multi-agents. Pipelines reproductibles, MLOps, FastAPI, LangGraph.
+  Disponible CDI · Thèse CIFRE.
+author:
+  name:     "Goudjou Borel"
+  email:    "goudjouborel@gmail.com"
+  github:   "Bore237"
+  linkedin: "borel-g-724522262"
+
+# ── URLs ───────────────────────────────────────────────
+# ⚠ Replace with your real GitHub Pages URL:
+# - Personal site repo (Bore237.github.io):  url: "https://bore237.github.io"  baseurl: ""
+# - Project repo (Bore237/portfolio):        url: "https://bore237.github.io"  baseurl: "/portfolio"
+url:     "https://bore237.github.io"
+baseurl: ""
+
+# ── Theme ──────────────────────────────────────────────
+# No Jekyll theme: index.html is served as-is (custom HTML/CSS portfolio).
+# Remove the line below only if you want Jekyll to apply a theme on top.
+theme: null
+
+# ── Language & locale ──────────────────────────────────
+lang:   "fr"
+locale: "fr_FR"
+
+# ── SEO & social ───────────────────────────────────────
+twitter:
+  username: ""   # add if you have one
+  card:     summary
+
+# ── Plugins ────────────────────────────────────────────
+plugins:
+  - jekyll-seo-tag     # auto-generates <meta> SEO tags
+  - jekyll-sitemap     # generates /sitemap.xml for indexing
+
+# ── Build settings ─────────────────────────────────────
+markdown:    kramdown
+highlighter: rouge
+
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
+
+# ── Sass / CSS compression ─────────────────────────────
+sass:
+  style: compressed
+
+# ── Files to exclude from the build ───────────────────
+exclude:
+  - node_modules/
+  - vendor/
+  - Gemfile
+  - Gemfile.lock
+  - "*.gemspec"
+  - "*.sh"
+  - CONTRIBUTING.md
+  - LICENSE
+  - .github/
+
+# ── Default front-matter (no layout needed for index.html) ──
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: null
+
+# ── Collections (none for now) ─────────────────────────
+# Uncomment to add a blog later:
+# collections:
+#   posts:
+#     output: true
+
+# ── Performance ────────────────────────────────────────
+incremental: false
+profile:     false
