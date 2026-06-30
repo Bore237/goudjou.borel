@@ -20,7 +20,7 @@ author:
 # - Personal site repo (Bore237.github.io):  url: "https://bore237.github.io"  baseurl: ""
 # - Project repo (Bore237/portfolio):        url: "https://bore237.github.io"  baseurl: "/portfolio"
 url:     "https://bore237.github.io"
-baseurl: ""
+baseurl: "/goudjou.borel"
 
 # ── Theme ──────────────────────────────────────────────
 # No Jekyll theme: index.html is served as-is (custom HTML/CSS portfolio).
