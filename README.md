@@ -1,6 +1,6 @@
 # 🩻 Borel Goudjou — Portfolio ML / IA Médicale
 
-> **Site live →** [bore237.github.io](https://bore237.github.io)
+> **Site live →** [bore237.github.io](https://bore237.github.io/goudjou.borel/)
 
 Ingénieur ML spécialisé en IA médicale, Computer Vision et systèmes multi-agents.  
 Je construis des pipelines de bout en bout — du preprocessing d'images médicales au déploiement d'agents autonomes — avec une exigence de reproductibilité et d'impact clinique mesurable.
