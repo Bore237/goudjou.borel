@@ -4,10 +4,10 @@
 # ══════════════════════════════════════════════════════
 
 # ── Site identity ──────────────────────────────────────
-title:       "Borel Goudjou — ML Engineer · Medical AI · Computer Vision"
+title:       "Borel Goudjou — AI Engineer · Computer Vision · LLM Agents · Medical AI"
 description: >
-  Ingénieur ML spécialisé en IA médicale, Computer Vision et systèmes
-  multi-agents. Pipelines reproductibles, MLOps, FastAPI, LangGraph.
+  AI Engineer généraliste spécialisé en Computer Vision, agents LLM, MLOps
+  et IA médicale. Pipelines reproductibles, FastAPI, LangGraph, W&B.
   Disponible CDI · Thèse CIFRE.
 author:
   name:     "Goudjou Borel"
@@ -20,7 +20,7 @@ author:
 # - Personal site repo (Bore237.github.io):  url: "https://bore237.github.io"  baseurl: ""
 # - Project repo (Bore237/portfolio):        url: "https://bore237.github.io"  baseurl: "/portfolio"
 url:     "https://bore237.github.io"
-baseurl: "/goudjou.borel"
+baseurl: "goudjou.borel"
 
 # ── Theme ──────────────────────────────────────────────
 # No Jekyll theme: index.html is served as-is (custom HTML/CSS portfolio).
