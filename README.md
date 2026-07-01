@@ -1,6 +1,6 @@
 # 🧠 Borel Goudjou — AI Engineer Portfolio (v2)
 
-> **Live →** [bore237.github.io](https://bore237.github.io)
+> **Live →** [bore237.github.io](https://bore237.github.io/goudjou.borel/)
 
 AI Engineer généraliste, spécialisé en Computer Vision, agents LLM, MLOps et IA médicale.
 Portfolio bilingue FR/EN, architecture modulaire, filtrage dynamique par domaine.
