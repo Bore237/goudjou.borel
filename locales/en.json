@@ -1,0 +1,176 @@
+{
+  "meta": {
+    "title": "Borel Goudjou — AI Engineer | Computer Vision, LLM Agents & Medical AI",
+    "description": "Generalist AI Engineer specialized in Computer Vision, LLM agents, MLOps and medical AI. Production pipelines: PyTorch, LangGraph, FastAPI, W&B. Open to full-time roles · CIFRE PhD.",
+    "ogTitle": "Borel Goudjou — AI Engineer",
+    "ogDescription": "I build AI systems that see, reason, and automate — from computer vision to production LLM agents."
+  },
+  "nav": {
+    "about": "Profile",
+    "projects": "Projects",
+    "skills": "Stack",
+    "contact": "Contact",
+    "langLabel": "FR"
+  },
+  "hero": {
+    "eyebrow": "AI Engineer · Actively looking",
+    "titleLine1": "Intelligent systems that",
+    "titleHighlight1": "see",
+    "titleLine2": "reason &",
+    "titleHighlight2": "automate",
+    "subtitle": "From medical imaging and computer vision to LLM agents and production AI systems. I design end-to-end pipelines, reproducible and deployment-ready.",
+    "badges": ["Computer Vision", "LLM & Agents", "MLOps", "Medical AI"],
+    "stats": [
+      { "value": "6", "suffix": "+", "label": "AI projects shipped" },
+      { "value": "4", "suffix": "", "label": "Domains mastered" },
+      { "value": "80", "suffix": "%", "label": "Accuracy in production" }
+    ],
+    "ctaPrimary": "View projects",
+    "ctaSecondary": "Get in touch",
+    "availability": "Available — Full-time · CIFRE PhD"
+  },
+  "profile": {
+    "name": "Goudjou Borel",
+    "role": "AI Engineer",
+    "bioShort": "I build end-to-end intelligent systems — computer vision, LLM agents and medical AI — with a production-first mindset."
+  },
+  "about": {
+    "label": "// About",
+    "title": "Beyond the notebook",
+    "intro": "I'm a generalist AI engineer — I design complete systems, from model to deployment — with a strong specialization in healthcare that taught me rigor: in medical imaging, a pipeline mistake is never cosmetic.",
+    "paragraphs": [
+      "My path started with classical computer vision (OpenCV, official certification) before expanding into deep learning architectures, foundation models (MedSAM), and then LLM-based agentic systems. This progression gave me a cross-layer view — I'm not boxed into a single part of the AI stack.",
+      "What I carry from my oncology and brain-imaging projects is scientific discipline — statistical validation, bias control, reproducibility — which I now apply to every system I build, including my production LLM agents.",
+      "I never ship a trained model without the MLOps pipeline around it: experiment tracking, automated tests, CI/CD. A project isn't done until someone other than me can use it."
+    ],
+    "expertiseTitle": "Areas of expertise",
+    "expertise": [
+      {
+        "icon": "👁️",
+        "title": "Computer Vision",
+        "desc": "Detection, segmentation, real-time tracking — from classical image processing to foundation models."
+      },
+      {
+        "icon": "🤖",
+        "title": "LLM & Autonomous Agents",
+        "desc": "Multi-agent architectures, RAG, LangGraph orchestration, MCP protocol, human-in-the-loop governance."
+      },
+      {
+        "icon": "🏥",
+        "title": "Medical AI",
+        "desc": "Imaging (MRI, X-ray), clinical survival analysis, rigorous statistical validation."
+      },
+      {
+        "icon": "⚙️",
+        "title": "MLOps & Production",
+        "desc": "CI/CD, experiment tracking (W&B), REST APIs, containerization, automated testing."
+      }
+    ],
+    "bringTitle": "What I bring to a team",
+    "bring": [
+      "A deployment-first mindset: I think API and MLOps from day one of model design, not as an afterthought.",
+      "Clinical-grade rigor: every metric is statistically validated, never shown in isolation.",
+      "Rare versatility: computer vision, LLMs and agentic systems in one engineer.",
+      "Full autonomy on end-to-end projects, from raw data to the user-facing interface."
+    ]
+  },
+  "filters": {
+    "all": "All",
+    "ai-engineering": "AI Engineering",
+    "computer-vision": "Computer Vision",
+    "generative-ai": "Generative AI",
+    "llm-agents": "LLM & Agents",
+    "medical-ai": "Medical AI",
+    "mlops": "MLOps",
+    "backend": "Backend & Deployment",
+    "searchPlaceholder": "Search a project, a technology…",
+    "noResults": "No project matches this filter."
+  },
+  "projects": {
+    "label": "// Selected work",
+    "title": "Projects",
+    "subtitle": "Every project follows the same logic: a real problem, an engineered solution, a measured outcome.",
+    "labels": {
+      "problem": "Problem",
+      "solution": "Solution",
+      "result": "Result",
+      "impact": "Impact",
+      "stack": "Stack",
+      "viewProject": "View project",
+      "inProgress": "In progress"
+    },
+    "items": {
+      "osteoscan": {
+        "title": "OsteoScan AI — Radiology Triage Assistant",
+        "problem": "Radiology departments are overwhelmed by exam volume, delaying treatment of urgent fractures.",
+        "solution": "A system combining a YOLO detector to localize bone anomalies on standard X-rays with an LLM agent (LangGraph + RAG) that drafts a structured report and suggests a clinical priority level.",
+        "result": "Full MLOps pipeline with Weights & Biases experiment tracking and continuous integration via GitHub Actions, trained on the VinDr-SpineXR dataset.",
+        "impact": "Goal: reduce time-to-care for urgent cases and standardize report quality at the pre-reading stage.",
+        "metrics": ["VinDr-SpineXR dataset", "YOLO + Grad-CAM", "RAG agent (LangGraph)", "CI/CD GitHub Actions + W&B"]
+      },
+      "medsam": {
+        "title": "MedSAM vs 3D U-Net — Brain Tumor Segmentation",
+        "problem": "Foundation models like MedSAM promise medical segmentation without task-specific training — but can they hold up against a specialized, end-to-end trained model?",
+        "solution": "Built a comparative benchmark: prompt-driven MedSAM (boxes/points) versus a 3D U-Net trained from scratch on BraTS MRI volumes, including a robustness study against prompt noise.",
+        "result": "Interactive 3D reconstruction (Marching Cubes), real-time Streamlit demo, and statistical mapping of Dice score degradation as prompt precision drops.",
+        "impact": "Actionable conclusion for guiding clinical architecture choices: full automation vs. expert-guided precision.",
+        "metrics": ["Dice & IoU on BraTS", "128³ voxel volumes", "Prompt robustness study", "Interactive 3D demo"]
+      },
+      "agents": {
+        "title": "AI Agents Ecosystem — Multi-Agent Orchestration",
+        "problem": "Most AI agent demos are fragile chatbots with no governance or testing — unusable in production.",
+        "solution": "Designed 3 distinct agentic architectures: an email assistant with human validation (HITL), a multi-agent planner under hierarchical supervision via Anthropic's MCP protocol, and a deterministic multimodal vision pipeline.",
+        "result": "Full async test suites (pytest-asyncio), context-compression middlewares, and third-party API integration via SSE.",
+        "impact": "Demonstrates mastery of reliable, secure agentic architecture patterns — beyond simple prompt engineering.",
+        "metrics": ["3 distinct agentic architectures", "Anthropic MCP protocol", "Human-in-the-Loop governance", "Automated async testing"]
+      },
+      "survival": {
+        "title": "Breast Cancer Survival ML — Risk Stratification",
+        "problem": "Predicting mortality risk and stratifying breast cancer patients to personalize their care pathway.",
+        "solution": "Survival analysis pipeline on the clinical METABRIC dataset: MICE imputation, oncology-driven feature engineering (NPI, PAM50), and a 3-model benchmark (Cox PH, Random Survival Forest, Gradient Boosting).",
+        "result": "High/low risk stratification statistically validated via Kaplan-Meier curves and Log-Rank test, with temporal calibration via the Integrated Brier Score.",
+        "impact": "An approach directly transferable to other oncology cohorts to support clinical decision-making.",
+        "metrics": ["C-index benchmark (3 models)", "IBS calibration", "Kaplan-Meier + Log-Rank test", "Permutation importance"]
+      },
+      "foodclf": {
+        "title": "Kenya Food Classifier — From Research to Product",
+        "problem": "Taking an image classification model from a research notebook to a genuinely usable web application.",
+        "solution": "A PyTorch model trained with mixed precision (AMP), served via a FastAPI REST API, with a web upload interface and Grad-CAM visualizations for prediction interpretability.",
+        "result": "~80% accuracy across 13 Kenyan dish categories, documented /predict endpoint, responsive frontend with confidence bars.",
+        "impact": "Demonstrates the ability to ship a complete AI product — not just a trained model, but a usable system.",
+        "metrics": ["~80% accuracy / 13 classes", "FastAPI REST API", "Interpretable Grad-CAM", "AMP training"]
+      },
+      "cvjourney": {
+        "title": "Computer Vision Journey — Industrial Fundamentals",
+        "problem": "Mastering computer vision fundamentals beyond high-level frameworks and pre-trained models.",
+        "solution": "4 milestone projects from the official OpenCV certification: homography-based document scanner, real-time AR filter via facial landmark tracking, robust HSV chroma keying, and detection-tracking fusion.",
+        "result": "A detection+tracking fusion pipeline reducing GPU load while maintaining high FPS and object ID persistence.",
+        "impact": "A solid technical foundation for any real-time vision system in production, on edge or cloud.",
+        "metrics": ["Homography & perspective transform", "MediaPipe Face Mesh", "Detection-Tracking Fusion", "Edge-ready pipeline"]
+      }
+    }
+  },
+  "skills": {
+    "label": "// Technical arsenal",
+    "title": "Stack & Tools",
+    "groups": [
+      { "title": "Deep Learning", "icon": "🧠", "items": ["PyTorch", "YOLO", "MedSAM", "3D U-Net", "torchvision", "AMP"] },
+      { "title": "LLM & Agents", "icon": "🤖", "items": ["LangGraph", "LangChain", "FastMCP", "RAG", "Groq", "Gemini 2.5"] },
+      { "title": "Medical Imaging", "icon": "🏥", "items": ["scikit-survival", "lifelines", "nibabel", "NIfTI", "BraTS", "VinDr-XR"] },
+      { "title": "MLOps & CI/CD", "icon": "📡", "items": ["W&B", "GitHub Actions", "TensorBoard", "Docker", "pytest-asyncio"] },
+      { "title": "API & Backend", "icon": "⚡", "items": ["FastAPI", "Streamlit", "SQLite", "Pydantic v2", "uvicorn"] },
+      { "title": "Computer Vision", "icon": "👁️", "items": ["OpenCV", "MediaPipe", "Grad-CAM", "Ultralytics", "scikit-image"] }
+    ]
+  },
+  "contact": {
+    "title": "Let's build something that matters.",
+    "subtitle": "I'm looking for a full-time AI Engineer / ML Engineer role, a CIFRE PhD, or a research collaboration — Computer Vision, LLM Agents or Medical AI.",
+    "emailButton": "✉ goudjouborel@gmail.com",
+    "linkedinButton": "LinkedIn →",
+    "githubButton": "GitHub →"
+  },
+  "footer": {
+    "rights": "© 2026 Goudjou Borel — MIT License",
+    "tagline": "Built with precision, not with templates."
+  }
+}
