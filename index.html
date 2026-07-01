@@ -3,497 +3,80 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Borel Goudjou — ML Engineer · Medical AI · Computer Vision</title>
-  <meta name="description" content="Borel Goudjou — Ingénieur ML spécialisé en IA médicale, Computer Vision et systèmes multi-agents. Disponible CDI · Thèse CIFRE.">
-  <meta name="keywords" content="ML Engineer, Medical AI, Computer Vision, LangGraph, MedSAM, PyTorch, FastAPI, MLOps">
+
+  <title>Borel Goudjou — AI Engineer | Computer Vision, LLM Agents & Medical AI</title>
+  <meta name="description" content="AI Engineer généraliste spécialisé en Computer Vision, agents LLM, MLOps et IA médicale. Disponible CDI · Thèse CIFRE.">
+  <meta name="keywords" content="AI Engineer, Machine Learning Engineer, Computer Vision Engineer, Deep Learning, LLM, Generative AI, MLOps, Medical Imaging, LangGraph, PyTorch, FastAPI">
   <meta name="author" content="Goudjou Borel">
+  <link rel="canonical" href="https://bore237.github.io">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Borel Goudjou — ML Engineer · Medical AI">
-  <meta property="og:description" content="Ingénieur ML spécialisé en IA médicale, Computer Vision et agents autonomes.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://bore237.github.io">
+  <meta property="og:title" content="Borel Goudjou — AI Engineer">
+  <meta property="og:description" content="Je construis des systèmes IA qui voient, raisonnent et automatisent — de la vision par ordinateur aux agents LLM en production.">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Borel Goudjou — AI Engineer">
+  <meta name="twitter:description" content="Computer Vision · LLM Agents · MLOps · Medical AI">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-  <style>
-    /* ══════════════════════════════════════════════
-       DESIGN TOKENS — Medical Imaging Dark Theme
-    ══════════════════════════════════════════════ */
-    :root {
-      --bg:          #070D1A;
-      --surface:     #0E1628;
-      --card:        #121C32;
-      --card-hov:    #172038;
-      --border:      #1C2B48;
-      --border-hi:   #2A3F6A;
-
-      --cyan:        #00D4FF;
-      --cyan-dim:    rgba(0,212,255,0.10);
-      --cyan-glow:   rgba(0,212,255,0.30);
-      --violet:      #7C3AED;
-      --violet-dim:  rgba(124,58,237,0.12);
-      --emerald:     #10B981;
-      --amber:       #F59E0B;
-      --coral:       #FB923C;
-
-      --text:        #DCE8F0;
-      --muted:       #6B87A8;
-      --dim:         #3A4F6E;
-
-      --ff-head:     'Space Grotesk', sans-serif;
-      --ff-body:     'Inter', sans-serif;
-      --ff-mono:     'JetBrains Mono', monospace;
-
-      --r:   12px;
-      --r-s: 6px;
-    }
-
-    /* ══════════════════════════════════════════════
-       RESET
-    ══════════════════════════════════════════════ */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html  { scroll-behavior: smooth; }
-    body  {
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--ff-body);
-      font-size: 15px;
-      line-height: 1.65;
-      -webkit-font-smoothing: antialiased;
-    }
-    a { color: inherit; text-decoration: none; }
-    img { display: block; max-width: 100%; }
-
-    /* ══════════════════════════════════════════════
-       NAV
-    ══════════════════════════════════════════════ */
-    nav {
-      position: fixed; top: 0; width: 100%; z-index: 100;
-      background: rgba(7,13,26,0.88);
-      backdrop-filter: blur(16px) saturate(180%);
-      border-bottom: 1px solid var(--border);
-      height: 58px;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 clamp(20px,5vw,80px);
-    }
-    .nav-brand {
-      font-family: var(--ff-head); font-weight: 600; font-size: 15px;
-      display: flex; align-items: center; gap: 10px;
-    }
-    .nav-dot {
-      width: 7px; height: 7px; border-radius: 50%;
-      background: var(--cyan); box-shadow: 0 0 8px var(--cyan);
-      animation: blink 2.4s ease-in-out infinite;
-    }
-    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.4} }
-
-    .nav-links { display: flex; gap: 30px; list-style: none; }
-    .nav-links a {
-      font-size: 11px; font-weight: 500; letter-spacing: .12em;
-      text-transform: uppercase; color: var(--muted);
-      transition: color .2s;
-    }
-    .nav-links a:hover { color: var(--cyan); }
-
-    /* ══════════════════════════════════════════════
-       WRAPPER
-    ══════════════════════════════════════════════ */
-    .wrap {
-      max-width: 1160px;
-      margin: 0 auto;
-      padding: 0 clamp(20px,5vw,60px);
-    }
-
-    section { padding: 96px 0; }
-
-    .label {
-      font-family: var(--ff-mono); font-size: 11px; font-weight: 500;
-      letter-spacing: .18em; text-transform: uppercase;
-      color: var(--cyan); margin-bottom: 10px;
-    }
-    .sec-title {
-      font-family: var(--ff-head); font-size: clamp(26px,3.5vw,38px);
-      font-weight: 700; letter-spacing: -1px;
-      margin-bottom: 48px;
-    }
-
-    /* ══════════════════════════════════════════════
-       HERO
-    ══════════════════════════════════════════════ */
-    .hero {
-      min-height: 100vh;
-      padding-top: 58px;
-      display: flex; align-items: center;
-    }
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 300px 1fr;
-      gap: 72px;
-      align-items: center;
-      width: 100%;
-    }
-
-    /* ── LEFT column ── */
-    .profile {
-      display: flex; flex-direction: column; align-items: center; gap: 20px;
-    }
-
-    /* Avatar with rotating ring + scan line */
-    .av-wrap {
-      position: relative; width: 180px; height: 180px;
-    }
-    .av-ring {
-      position: absolute; inset: -3px; border-radius: 50%;
-      background: conic-gradient(var(--cyan), var(--violet), #1a4080, var(--cyan));
-      animation: spin 7s linear infinite;
-    }
-    @keyframes spin { to { transform: rotate(360deg); } }
-    .av-mask {
-      position: absolute; inset: 3px; border-radius: 50%; background: var(--bg);
-    }
-    .av-inner {
-      position: absolute; inset: 5px; border-radius: 50%; overflow: hidden;
-      background: linear-gradient(135deg, #0D1E3C 0%, #1A3060 100%);
-      display: flex; align-items: center; justify-content: center;
-    }
-
-    /* ↓ To use your real photo, replace the <span> below with:
-         <img src="photo.jpg" alt="Borel Goudjou"
-              style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
-    */
-    .av-initials {
-      font-family: var(--ff-head); font-size: 52px; font-weight: 700;
-      color: var(--cyan); letter-spacing: -3px;
-      text-shadow: 0 0 28px var(--cyan-glow);
-    }
-    /* Signature element: medical scanner sweep */
-    .scanner {
-      position: absolute; left: 5px; right: 5px; height: 2px; z-index: 10;
-      background: linear-gradient(to right, transparent, var(--cyan), transparent);
-      box-shadow: 0 0 10px var(--cyan), 0 0 20px var(--cyan-glow);
-      border-radius: 99px;
-      animation: scan 3s ease-in-out infinite;
-    }
-    @keyframes scan {
-      0%   { top: 5px;  opacity: 0; }
-      8%   { opacity: 1; }
-      92%  { opacity: 1; }
-      100% { top: calc(100% - 5px); opacity: 0; }
-    }
-
-    .profile-name {
-      font-family: var(--ff-head); font-size: 22px; font-weight: 700;
-      text-align: center;
-    }
-    .profile-role {
-      font-family: var(--ff-mono); font-size: 11px; font-weight: 500;
-      letter-spacing: .12em; text-transform: uppercase;
-      color: var(--cyan); text-align: center;
-    }
-    .profile-bio {
-      font-size: 13.5px; color: var(--muted); text-align: center;
-      line-height: 1.7; max-width: 270px;
-    }
-
-    .avail {
-      display: flex; align-items: center; gap: 8px;
-      background: rgba(16,185,129,.08);
-      border: 1px solid rgba(16,185,129,.22);
-      border-radius: 20px; padding: 5px 14px;
-      font-size: 12px; font-weight: 500; color: var(--emerald);
-    }
-    .avail-dot {
-      width: 6px; height: 6px; border-radius: 50%;
-      background: var(--emerald); animation: blink 1.6s ease-in-out infinite;
-    }
-
-    .links { display: flex; flex-direction: column; gap: 8px; width: 100%; }
-    .link-row {
-      display: flex; align-items: center; gap: 10px;
-      padding: 9px 13px; background: var(--card);
-      border: 1px solid var(--border); border-radius: var(--r-s);
-      font-size: 12.5px; color: var(--muted);
-      transition: border-color .2s, color .2s, background .2s;
-    }
-    .link-row:hover {
-      border-color: var(--cyan); color: var(--text); background: var(--card-hov);
-    }
-    .link-row svg { width: 16px; height: 16px; flex-shrink: 0; color: var(--dim); transition: color .2s; }
-    .link-row:hover svg { color: var(--cyan); }
-
-    /* ── RIGHT column ── */
-    .hero-eyebrow {
-      display: inline-flex; align-items: center; gap: 8px;
-      font-family: var(--ff-mono); font-size: 11px;
-      color: var(--dim); letter-spacing: .1em;
-      text-transform: uppercase; margin-bottom: 22px;
-    }
-    .hero-h1 {
-      font-family: var(--ff-head);
-      font-size: clamp(38px,5.5vw,64px);
-      font-weight: 700; letter-spacing: -3px; line-height: 1.08;
-      margin-bottom: 22px;
-    }
-    .hero-h1 .c { color: var(--cyan); }
-    .hero-h1 .v { color: var(--violet); }
-
-    .hero-sub {
-      font-size: 15.5px; color: var(--muted);
-      max-width: 480px; line-height: 1.75; margin-bottom: 36px;
-    }
-
-    .stats {
-      display: grid; grid-template-columns: repeat(3,1fr);
-      gap: 14px; margin-bottom: 36px;
-    }
-    .stat {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: var(--r); padding: 16px 18px;
-      transition: border-color .2s;
-    }
-    .stat:hover { border-color: var(--border-hi); }
-    .stat-v {
-      font-family: var(--ff-head); font-size: 28px; font-weight: 700;
-      line-height: 1; margin-bottom: 4px;
-    }
-    .stat-v span { font-size: 15px; color: var(--cyan); }
-    .stat-l { font-size: 10.5px; color: var(--muted); text-transform: uppercase; letter-spacing: .07em; }
-
-    .cta { display: flex; gap: 10px; flex-wrap: wrap; }
-    .btn-p {
-      display: inline-flex; align-items: center; gap: 7px;
-      background: var(--cyan); color: var(--bg);
-      font-family: var(--ff-head); font-size: 13.5px; font-weight: 600;
-      padding: 11px 22px; border-radius: var(--r-s);
-      transition: background .2s, transform .2s, box-shadow .2s;
-    }
-    .btn-p:hover {
-      background: #2ADEFF; transform: translateY(-1px);
-      box-shadow: 0 8px 24px var(--cyan-glow);
-    }
-    .btn-s {
-      display: inline-flex; align-items: center; gap: 7px;
-      background: transparent; color: var(--text);
-      font-family: var(--ff-head); font-size: 13.5px; font-weight: 500;
-      padding: 11px 22px; border: 1px solid var(--border); border-radius: var(--r-s);
-      transition: border-color .2s, background .2s;
-    }
-    .btn-s:hover { border-color: var(--border-hi); background: var(--card); }
-
-    /* ══════════════════════════════════════════════
-       DIVIDER
-    ══════════════════════════════════════════════ */
-    .hr { border: none; border-top: 1px solid var(--border); }
-
-    /* ══════════════════════════════════════════════
-       PROJECTS
-    ══════════════════════════════════════════════ */
-    .pgrid {
-      display: grid;
-      grid-template-columns: repeat(2,1fr);
-      gap: 18px;
-    }
-    .pcard {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: var(--r); padding: 26px;
-      display: flex; flex-direction: column; gap: 14px;
-      position: relative; overflow: hidden;
-      transition: border-color .25s, transform .25s, background .25s;
-    }
-    .pcard::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
-      background: linear-gradient(to right, transparent, var(--cyan), transparent);
-      opacity: 0; transition: opacity .3s;
-    }
-    .pcard:hover::before { opacity: 1; }
-    .pcard:hover {
-      border-color: var(--border-hi);
-      background: var(--card-hov);
-      transform: translateY(-2px);
-    }
-    .pcard.feat {
-      border-color: rgba(0,212,255,.18);
-      background: linear-gradient(140deg, #121C32, #0E1929);
-    }
-    .pcard.feat::before { opacity: .4; }
-
-    .card-top {
-      display: flex; align-items: flex-start;
-      justify-content: space-between; gap: 10px;
-    }
-    .badges { display: flex; flex-wrap: wrap; gap: 5px; }
-    .badge {
-      font-family: var(--ff-mono); font-size: 9.5px; font-weight: 500;
-      padding: 3px 8px; border-radius: 4px; letter-spacing: .07em;
-      text-transform: uppercase;
-    }
-    .bm { background: rgba(0,212,255,.08); color: var(--cyan); border: 1px solid rgba(0,212,255,.18); }
-    .bw { background: rgba(245,158,11,.08); color: var(--amber); border: 1px solid rgba(245,158,11,.20); }
-    .ba { background: rgba(124,58,237,.08); color: #A78BFA; border: 1px solid rgba(124,58,237,.18); }
-    .bc { background: rgba(16,185,129,.08); color: var(--emerald); border: 1px solid rgba(16,185,129,.18); }
-    .bo { background: rgba(251,146,60,.08); color: var(--coral); border: 1px solid rgba(251,146,60,.18); }
-
-    .ext { color: var(--dim); transition: color .2s; }
-    .ext:hover { color: var(--cyan); }
-
-    .card-title {
-      font-family: var(--ff-head); font-size: 17px; font-weight: 600; line-height: 1.3;
-    }
-    .card-desc { font-size: 13px; color: var(--muted); line-height: 1.65; }
-
-    .metric {
-      display: flex; align-items: center; gap: 9px;
-      padding: 9px 13px; border-radius: var(--r-s);
-      background: rgba(0,212,255,.04);
-      border: 1px solid rgba(0,212,255,.08);
-    }
-    .metric-text {
-      font-family: var(--ff-mono); font-size: 11.5px; color: var(--muted);
-    }
-    .metric-text strong { color: var(--cyan); font-weight: 500; }
-
-    .tags {
-      display: flex; flex-wrap: wrap; gap: 5px; margin-top: auto;
-    }
-    .tag {
-      font-family: var(--ff-mono); font-size: 10.5px;
-      padding: 3px 9px; background: var(--surface);
-      border: 1px solid var(--border); border-radius: 4px;
-      color: var(--dim);
-    }
-
-    /* ══════════════════════════════════════════════
-       STACK
-    ══════════════════════════════════════════════ */
-    .sgrid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
-      gap: 16px;
-    }
-    .sgroup {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: var(--r); padding: 22px;
-    }
-    .sgroup-title {
-      font-family: var(--ff-mono); font-size: 10.5px; font-weight: 500;
-      color: var(--dim); text-transform: uppercase; letter-spacing: .12em;
-      margin-bottom: 12px;
-    }
-    .sitems { display: flex; flex-wrap: wrap; gap: 7px; }
-    .sitem {
-      font-size: 12.5px; font-weight: 500;
-      padding: 4px 11px; border-radius: var(--r-s);
-      background: var(--surface); border: 1px solid var(--border);
-      color: var(--muted); transition: color .18s, border-color .18s;
-    }
-    .sitem:hover { color: var(--text); border-color: var(--border-hi); }
-
-    /* ══════════════════════════════════════════════
-       CONTACT
-    ══════════════════════════════════════════════ */
-    .contact-wrap { text-align: center; }
-    .cbox {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: 20px; padding: clamp(40px,6vw,72px) clamp(24px,5vw,60px);
-      position: relative; overflow: hidden;
-    }
-    .cbox::after {
-      content: ''; position: absolute;
-      bottom: -80px; left: 50%; transform: translateX(-50%);
-      width: 320px; height: 320px;
-      background: radial-gradient(circle, rgba(0,212,255,.07), transparent 70%);
-      pointer-events: none;
-    }
-    .cbox h2 {
-      font-family: var(--ff-head); font-size: clamp(26px,4vw,40px);
-      font-weight: 700; letter-spacing: -1.5px; margin-bottom: 14px;
-    }
-    .cbox p {
-      font-size: 15px; color: var(--muted);
-      max-width: 460px; margin: 0 auto 36px; line-height: 1.75;
-    }
-    .cbtns { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
-
-    /* ══════════════════════════════════════════════
-       FOOTER
-    ══════════════════════════════════════════════ */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 28px clamp(20px,5vw,80px);
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    footer p { font-size: 12.5px; color: var(--dim); }
-    .foot-r { font-family: var(--ff-mono); font-size: 11.5px; color: var(--muted); }
-
-    /* ══════════════════════════════════════════════
-       RESPONSIVE
-    ══════════════════════════════════════════════ */
-    @media (max-width: 860px) {
-      .hero-grid { grid-template-columns: 1fr; gap: 48px; }
-      .pgrid     { grid-template-columns: 1fr; }
-      .profile   { flex-direction: row; flex-wrap: wrap; text-align: left; }
-      .profile-bio, .profile-name, .profile-role { text-align: left; }
-      .stats     { grid-template-columns: repeat(3,1fr); }
-    }
-    @media (max-width: 540px) {
-      .nav-links { display: none; }
-      .stats     { grid-template-columns: 1fr 1fr; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { animation: none !important; transition: none !important; }
-    }
-  </style>
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
-<!-- ─── NAV ─── -->
+<!-- ═══════════════ NAV ═══════════════ -->
 <nav>
   <div class="nav-brand">
     <div class="nav-dot"></div>
     Borel Goudjou
   </div>
-  <ul class="nav-links">
-    <li><a href="#about">Profil</a></li>
-    <li><a href="#projects">Projets</a></li>
-    <li><a href="#stack">Stack</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#about" data-i18n="nav.about">Profil</a></li>
+      <li><a href="#projects" data-i18n="nav.projects">Projets</a></li>
+      <li><a href="#skills" data-i18n="nav.skills">Stack</a></li>
+      <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+    </ul>
+    <button id="lang-toggle" class="lang-btn" aria-label="Switch language">EN</button>
+  </div>
 </nav>
 
-<!-- ─── HERO ─── -->
+<!-- ═══════════════ HERO ═══════════════ -->
 <section id="about" class="hero">
   <div class="wrap" style="width:100%">
     <div class="hero-grid">
 
-      <!-- ── LEFT: Profile ── -->
+      <!-- LEFT: profile card -->
       <div class="profile">
-
         <div class="av-wrap">
           <div class="av-ring"></div>
           <div class="av-mask"></div>
           <div class="av-inner">
-            <!-- ↓ Replace with <img src="photo.jpg" ...> once you have your headshot -->
-            <img src="photo.jpg" alt="Borel Goudjou"
-              style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
-            <!-- <span class="av-initials">BG</span> -->
+            <!-- Replace with your headshot: -->
+                 <img src="photo.jpg" alt="Borel Goudjou"
+                      style="width:100%;height:100%;object-fit:cover;border-radius:50%;"> 
+            <!--<span class="av-initials">BG</span>-->
           </div>
-          <div class="scanner"></div>
+          <!--<div class="scanner"></div>-->
         </div>
 
-        <div class="profile-name">Goudjou Borel</div>
-        <div class="profile-role">ML Engineer · Medical AI</div>
-
-        <p class="profile-bio">
-          Je conçois des systèmes d'IA médicale et de vision par ordinateur — de la cellule tumorale au déploiement d'agents autonomes — avec une exigence de reproductibilité et d'impact clinique.
-        </p>
+        <div class="profile-name" data-i18n="profile.name">Goudjou Borel</div>
+        <div class="profile-role" data-i18n="profile.role">AI Engineer</div>
+        <p class="profile-bio" data-i18n="profile.bioShort"></p>
 
         <div class="avail">
           <div class="avail-dot"></div>
-          Disponible — CDI · Thèse CIFRE
+          <span data-i18n="hero.availability"></span>
         </div>
 
         <div class="links">
@@ -516,365 +99,135 @@
             Borel Goudjou · LinkedIn
           </a>
         </div>
+      </div>
 
-      </div><!-- /profile -->
-
-      <!-- ── RIGHT: Tagline + Stats ── -->
+      <!-- RIGHT: tagline -->
       <div>
-
         <div class="hero-eyebrow">
           <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <circle cx="12" cy="12" r="3"/>
             <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
           </svg>
-          ML Engineer · En recherche active
+          <span data-i18n="hero.eyebrow"></span>
         </div>
 
         <h1 class="hero-h1">
-          Des modèles qui<br>
-          <span class="c">voient</span>,<br>
-          raisonnent &amp;<br>
-          <span class="v">décident</span>.
+          <span data-i18n="hero.titleLine1"></span>
+          <span class="c" data-i18n="hero.titleHighlight1"></span>,<br>
+          <span data-i18n="hero.titleLine2"></span>
+          <span class="v" data-i18n="hero.titleHighlight2"></span>.
         </h1>
 
-        <p class="hero-sub">
-          Du preprocessing d'images IRM au déploiement d'agents autonomes — je construis des pipelines de bout en bout avec une exigence de production, de reproductibilité, et d'impact clinique mesurable.
-        </p>
+        <p class="hero-sub" data-i18n="hero.subtitle"></p>
 
-        <div class="stats">
-          <div class="stat">
-            <div class="stat-v">6<span>+</span></div>
-            <div class="stat-l">Projets ML / IA</div>
-          </div>
-          <div class="stat">
-            <div class="stat-v">80<span>%</span></div>
-            <div class="stat-l">Accuracy (food clf.)</div>
-          </div>
-          <div class="stat">
-            <div class="stat-v">3<span>D</span></div>
-            <div class="stat-l">Medical Segmentation</div>
-          </div>
-        </div>
+        <div id="hero-badges" class="hero-badges"></div>
+
+        <div id="hero-stats" class="stats"></div>
 
         <div class="cta">
           <a href="#projects" class="btn-p">
-            Voir les projets
+            <span data-i18n="hero.ctaPrimary"></span>
             <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
               <path d="M19 9l-7 7-7-7"/>
             </svg>
           </a>
-          <a href="mailto:goudjouborel@gmail.com" class="btn-s">Me contacter</a>
+          <a href="mailto:goudjouborel@gmail.com" class="btn-s" data-i18n="hero.ctaSecondary"></a>
         </div>
+      </div>
 
-      </div><!-- /hero-right -->
-
-    </div><!-- /hero-grid -->
+    </div>
   </div>
 </section>
 
 <hr class="hr">
 
-<!-- ─── PROJECTS ─── -->
-<section id="projects">
+<!-- ═══════════════ ABOUT ═══════════════ -->
+<section id="about-detail">
   <div class="wrap">
-    <div class="label">// Travaux sélectionnés</div>
-    <div class="sec-title">Projets à impact</div>
+    <div class="label" data-i18n="about.label"></div>
+    <h2 class="sec-title" data-i18n="about.title"></h2>
+    <p class="about-intro" data-i18n="about.intro"></p>
+    <div id="about-paragraphs" class="about-paragraphs"></div>
 
-    <div class="pgrid">
-
-      <!-- 1 · OsteoScan AI -->
-      <div class="pcard feat">
-        <div class="card-top">
-          <div class="badges">
-            <span class="badge bm">Medical AI</span>
-            <span class="badge bw">● En cours</span>
-          </div>
-          <a href="https://github.com/Bore237/AI-Clinical-Imaging-Assistant" target="_blank" rel="noopener" class="ext" title="Bientôt disponible">
-            <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/>
-            </svg>
-          </a>
-        </div>
-        <div class="card-title">OsteoScan AI — Triage de Radiographies</div>
-        <p class="card-desc">
-          Détection automatique de fractures osseuses (YOLO) sur radiographies standards. Priorise les patients dans la file d'attente du radiologue et génère des propositions de compte-rendu médical standardisé via un agent RAG (LangGraph + LangChain). Suivi MLOps complet avec W&B et CI/CD GitHub Actions.
-        </p>
-        <div class="metric">
-          <span>🎯</span>
-          <span class="metric-text">Dataset <strong>VinDr-SpineXR</strong> · YOLO Detection · <strong>W&amp;B</strong> MLOps · GitHub Actions CI/CD</span>
-        </div>
-        <div class="tags">
-          <span class="tag">YOLO · Ultralytics</span>
-          <span class="tag">LangGraph</span>
-          <span class="tag">RAG</span>
-          <span class="tag">FastAPI</span>
-          <span class="tag">W&B</span>
-          <span class="tag">SQLite</span>
-          <span class="tag">GH Actions</span>
-        </div>
+    <div class="about-cols">
+      <div>
+        <div class="subhead" data-i18n="about.expertiseTitle"></div>
+        <div id="about-expertise" class="xgrid"></div>
       </div>
-
-      <!-- 2 · MedSAM vs 3D U-Net -->
-      <div class="pcard feat">
-        <div class="card-top">
-          <div class="badges">
-            <span class="badge bm">Medical AI</span>
-            <span class="badge bc">Computer Vision</span>
-          </div>
-          <a href="https://github.com/Bore237/MedSAM-PromptEng-vs-3DUNet" target="_blank" rel="noopener" class="ext">
-            <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/>
-            </svg>
-          </a>
-        </div>
-        <div class="card-title">MedSAM vs 3D U-Net — Segmentation Cérébrale BraTS</div>
-        <p class="card-desc">
-          Benchmark complet : modèles de fondation guidés par prompts (MedSAM zero-shot) face à un U-Net 3D souverain entraîné sur gliomes. Étude de robustesse aux perturbations géométriques de prompts, reconstruction 3D Marching Cubes, demo Streamlit interactive.
-        </p>
-        <div class="metric">
-          <span>🧠</span>
-          <span class="metric-text">Dataset <strong>BraTS</strong> · Dice + IoU · Volumes <strong>128³</strong> voxels · Dice Loss + CE hybride</span>
-        </div>
-        <div class="tags">
-          <span class="tag">PyTorch</span>
-          <span class="tag">MedSAM</span>
-          <span class="tag">3D U-Net</span>
-          <span class="tag">NIfTI</span>
-          <span class="tag">TensorBoard</span>
-          <span class="tag">Streamlit</span>
-          <span class="tag">nibabel</span>
-        </div>
-      </div>
-
-      <!-- 3 · AI Agents Ecosystem -->
-      <div class="pcard">
-        <div class="card-top">
-          <div class="badges">
-            <span class="badge ba">Multi-Agents</span>
-            <span class="badge ba">LangGraph · MCP</span>
-          </div>
-          <a href="https://github.com/Bore237/applied-ai-agents" target="_blank" rel="noopener" class="ext">
-            <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/>
-            </svg>
-          </a>
-        </div>
-        <div class="card-title">AI Agents Ecosystem — Orchestration LangGraph</div>
-        <p class="card-desc">
-          Suite de 3 agents IA production-ready : assistant email Gmail sécurisé (HITL + résumé de contexte), chef culinaire par vision multimodale (Gemini 2.5 + Pydantic), planificateur multi-agents à supervision hiérarchique (MCP/SSE). Suites de tests asynchrones complètes.
-        </p>
-        <div class="metric">
-          <span>🤖</span>
-          <span class="metric-text"><strong>3 agents</strong> production · MCP Anthropic · HITL governance · Groq + Gemini 2.5 · Pytest-asyncio</span>
-        </div>
-        <div class="tags">
-          <span class="tag">LangGraph</span>
-          <span class="tag">LangChain</span>
-          <span class="tag">FastMCP</span>
-          <span class="tag">Groq</span>
-          <span class="tag">Gemini 2.5</span>
-          <span class="tag">Pydantic v2</span>
-          <span class="tag">Streamlit</span>
-        </div>
-      </div>
-
-      <!-- 4 · Breast Cancer Survival -->
-      <div class="pcard">
-        <div class="card-top">
-          <div class="badges">
-            <span class="badge bo">Survival Analysis</span>
-            <span class="badge bm">Oncologie</span>
-          </div>
-          <a href="https://github.com/Bore237/Breast-Cancer-Survival-ML" target="_blank" rel="noopener" class="ext">
-            <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/>
-            </svg>
-          </a>
-        </div>
-        <div class="card-title">Breast Cancer Survival ML — METABRIC</div>
-        <p class="card-desc">
-          Pipeline clinique complet sur le dataset METABRIC : imputation MICE, ingénierie NPI/PAM50, benchmark C-index entre Cox PH / Random Survival Forest / GBSA. Stratification Haut/Bas risque validée par courbes Kaplan-Meier et Log-Rank Test.
-        </p>
-        <div class="metric">
-          <span>📊</span>
-          <span class="metric-text">C-index · <strong>IBS calibration</strong> · MICE imputation · Kaplan-Meier · Log-Rank Test</span>
-        </div>
-        <div class="tags">
-          <span class="tag">scikit-survival</span>
-          <span class="tag">lifelines</span>
-          <span class="tag">MICE</span>
-          <span class="tag">GridSearchCV</span>
-          <span class="tag">pandas</span>
-        </div>
-      </div>
-
-      <!-- 5 · Kenya Food Classifier -->
-      <div class="pcard">
-        <div class="card-top">
-          <div class="badges">
-            <span class="badge bc">Computer Vision</span>
-            <span class="badge bc">FastAPI</span>
-          </div>
-          <a href="https://github.com/Bore237/fastapi-pytorch-kenyan-food-classifier" target="_blank" rel="noopener" class="ext">
-            <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/>
-            </svg>
-          </a>
-        </div>
-        <div class="card-title">Kenya Food Classifier — FastAPI + Grad-CAM</div>
-        <p class="card-desc">
-          Application web full-stack de classification d'images culinaires kenyanes. PyTorch avec AMP et scheduling adaptatif, API REST FastAPI avec endpoint /predict, frontend responsive, et Grad-CAM pour l'interprétabilité des prédictions.
-        </p>
-        <div class="metric">
-          <span>🎯</span>
-          <span class="metric-text">Accuracy <strong>~80%</strong> · 13 classes · Grad-CAM · AMP training · ReduceLROnPlateau</span>
-        </div>
-        <div class="tags">
-          <span class="tag">PyTorch 2.0</span>
-          <span class="tag">FastAPI</span>
-          <span class="tag">Grad-CAM</span>
-          <span class="tag">AMP</span>
-          <span class="tag">uvicorn</span>
-        </div>
-      </div>
-
-      <!-- 6 · CV Journey -->
-      <div class="pcard">
-        <div class="card-top">
-          <div class="badges">
-            <span class="badge bc">Computer Vision</span>
-            <span class="badge bc">Certification OpenCV</span>
-          </div>
-          <a href="https://github.com/Bore237/computer-vision-journey" target="_blank" rel="noopener" class="ext">
-            <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/>
-            </svg>
-          </a>
-        </div>
-        <div class="card-title">Computer Vision Journey — Certification OpenCV</div>
-        <p class="card-desc">
-          4 projets jalons : scanner de documents par homographie, filtre AR temps réel (landmarks + alpha blending), chroma key HSV robuste, et pipeline détection-tracking (Kalman/CSRT) pour réduire la charge GPU en maintenant un haut FPS.
-        </p>
-        <div class="metric">
-          <span>👁️</span>
-          <span class="metric-text">Homography · MediaPipe Landmarks · <strong>Detection-Tracking Fusion</strong> · Kalman Filter</span>
-        </div>
-        <div class="tags">
-          <span class="tag">OpenCV</span>
-          <span class="tag">MediaPipe</span>
-          <span class="tag">NumPy</span>
-          <span class="tag">ONNX</span>
-          <span class="tag"></span>
-        </div>
-      </div>
-
-    </div><!-- /pgrid -->
-  </div>
-</section>
-
-<hr class="hr">
-
-<!-- ─── STACK ─── -->
-<section id="stack">
-  <div class="wrap">
-    <div class="label">// Arsenal technique</div>
-    <div class="sec-title">Stack &amp; Outils</div>
-
-    <div class="sgrid">
-      <div class="sgroup">
-        <div class="sgroup-title">🧠 Deep Learning</div>
-        <div class="sitems">
-          <span class="sitem">PyTorch and TensorFlow</span>
-          <span class="sitem">YOLO, MedSAM, U-Net, NAFNet</span>
-          <span class="sitem">Huging face</span>
-          <span class="sitem">tim</span>
-        </div>
-      </div>
-      <div class="sgroup">
-        <div class="sgroup-title">🤖 Agents &amp; LLM</div>
-        <div class="sitems">
-          <span class="sitem">LangGraph</span>
-          <span class="sitem">LangChain</span>
-          <span class="sitem">FastMCP</span>
-          <span class="sitem">RAG</span>
-          <span class="sitem">HumaunInLoop</span>
-          <span class="sitem">Multi-Agent</span>
-        </div>
-      </div>
-      <div class="sgroup">
-        <div class="sgroup-title">🏥 Medical Imaging</div>
-        <div class="sitems">
-          <span class="sitem">scikit-survival</span>
-          <span class="sitem">lifelines</span>
-          <span class="sitem">nibabel</span>
-          <span class="sitem">DICOM</span>
-          <span class="sitem">NIfTI</span>
-          <span class="sitem">BraTS</span>
-          <span class="sitem">Napari</span>
-        </div>
-      </div>
-      <div class="sgroup">
-        <div class="sgroup-title">📡 MLOps &amp; CI/CD</div>
-        <div class="sitems">
-          <span class="sitem">W&amp;B</span>
-          <span class="sitem">GitHub Actions</span>
-          <span class="sitem">AWS</span>
-          <span class="sitem">Wandb & MLFlow</span>
-          <span class="sitem">Docker</span>
-          <span class="sitem">pytest-asyncio</span>
-        </div>
-      </div>
-      <div class="sgroup">
-        <div class="sgroup-title">⚡ API &amp; Backend</div>
-        <div class="sitems">
-          <span class="sitem">FastAPI</span>
-          <span class="sitem">Streamlit</span>
-          <span class="sitem">SQLite</span>
-          <span class="sitem">Pydantic v2</span>
-          <span class="sitem">uvicorn</span>
-        </div>
-      </div>
-      <div class="sgroup">
-        <div class="sgroup-title">👁️ Computer Vision</div>
-        <div class="sitems">
-          <span class="sitem">OpenCV</span>
-          <span class="sitem">MediaPipe</span>
-          <span class="sitem">Grad-CAM</span>
-          <span class="sitem">Ultralytics</span>
-          <span class="sitem">scikit-image</span>
+      <div>
+        <div class="subhead" data-i18n="about.bringTitle"></div>
+        <div class="bring-box">
+          <ul id="about-bring"></ul>
         </div>
       </div>
     </div>
-
   </div>
 </section>
 
 <hr class="hr">
 
-<!-- ─── CONTACT ─── -->
+<!-- ═══════════════ PROJECTS ═══════════════ -->
+<section id="projects">
+  <div class="wrap">
+    <div class="label" data-i18n="projects.label"></div>
+    <h2 class="sec-title" data-i18n="projects.title"></h2>
+    <p class="sec-subtitle" data-i18n="projects.subtitle"></p>
+
+    <div class="filter-controls">
+      <div id="filter-bar" class="filter-bar"></div>
+      <div class="search-row">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/>
+        </svg>
+        <input type="text" id="project-search" data-i18n-placeholder="filters.searchPlaceholder">
+      </div>
+    </div>
+
+    <div id="project-grid" class="pgrid"></div>
+    <p id="project-empty"></p>
+  </div>
+</section>
+
+<hr class="hr">
+
+<!-- ═══════════════ SKILLS ═══════════════ -->
+<section id="skills">
+  <div class="wrap">
+    <div class="label" data-i18n="skills.label"></div>
+    <h2 class="sec-title" data-i18n="skills.title"></h2>
+    <div id="skills-grid" class="sgrid"></div>
+  </div>
+</section>
+
+<hr class="hr">
+
+<!-- ═══════════════ CONTACT ═══════════════ -->
 <section id="contact">
   <div class="wrap">
     <div class="contact-wrap">
       <div class="cbox">
-        <h2>Construisons quelque chose d'important.</h2>
-        <p>Je suis à la recherche d'opportunités en CDI, thèse CIFRE ou collaboration de recherche en IA médicale et Computer Vision. Parlons de votre projet.</p>
+        <h2 data-i18n="contact.title"></h2>
+        <p data-i18n="contact.subtitle"></p>
         <div class="cbtns">
-          <a href="mailto:goudjouborel@gmail.com" class="btn-p">
-            ✉ goudjouborel@gmail.com
-          </a>
-          <a href="https://www.linkedin.com/in/borel-g-724522262/" target="_blank" rel="noopener" class="btn-s">LinkedIn →</a>
-          <a href="https://github.com/Bore237" target="_blank" rel="noopener" class="btn-s">GitHub →</a>
+          <a href="mailto:goudjouborel@gmail.com" class="btn-p" data-i18n="contact.emailButton"></a>
+          <a href="https://www.linkedin.com/in/borel-g-724522262/" target="_blank" rel="noopener" class="btn-s" data-i18n="contact.linkedinButton"></a>
+          <a href="https://github.com/Bore237" target="_blank" rel="noopener" class="btn-s" data-i18n="contact.githubButton"></a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ─── FOOTER ─── -->
+<!-- ═══════════════ FOOTER ═══════════════ -->
 <footer>
-  <p>© 2026 Goudjou Borel — MIT License</p>
-  <div class="foot-r">Built with precision, not with templates.</div>
+  <p data-i18n="footer.rights"></p>
+  <div class="foot-r" data-i18n="footer.tagline"></div>
 </footer>
 
+<!-- Scripts -->
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/projects-data.js"></script>
+<script src="assets/js/render.js"></script>
+<script src="assets/js/main.js"></script>
 </body>
 </html>
