@@ -1,9 +1,9 @@
 {
   "meta": {
     "title": "Borel Goudjou — AI Engineer | Computer Vision, LLM Agents & Medical AI",
-    "description": "AI Engineer généraliste spécialisé en Computer Vision, agents LLM, MLOps et IA médicale. Pipelines de production : PyTorch, LangGraph, FastAPI, W&B. Disponible CDI · Thèse CIFRE.",
+    "description": "AI Engineer spécialisé en Computer Vision, agents LLM, MLOps et IA médicale. Pipelines de production : PyTorch, LangGraph, FastAPI, W&B. Disponible CDI · Thèse CIFRE.",
     "ogTitle": "Borel Goudjou — AI Engineer",
-    "ogDescription": "Je construis des systèmes IA qui voient, raisonnent et automatisent — de la vision par ordinateur aux agents LLM en production."
+    "ogDescription": "Je construis des systèmes IA qui voient, raisonnent et automatisent — de la vision par ordinateur aux agents LLM deployable."
   },
   "nav": {
     "about": "Profil",
@@ -18,7 +18,7 @@
     "titleHighlight1": "voient",
     "titleLine2": "raisonnent &",
     "titleHighlight2": "automatisent",
-    "subtitle": "De l'imagerie médicale et la vision par ordinateur aux agents LLM et systèmes IA en production. Je conçois des pipelines de bout en bout, reproductibles et prêts pour le déploiement.",
+    "subtitle": "De l'imagerie médicale et la vision par ordinateur aux agents LLM et systèmes IA. Je conçois des pipelines de bout en bout, reproductibles et prêts pour le déploiement.",
     "badges": ["Computer Vision", "LLM & Agents", "MLOps", "Medical AI"],
     "stats": [
       { "value": "6", "suffix": "+", "label": "Projets IA livrés" },
@@ -37,7 +37,7 @@
   "about": {
     "label": "// Qui suis-je",
     "title": "Au-delà du notebook",
-    "intro": "Je suis ingénieur IA généraliste — je conçois des systèmes complets, du modèle au déploiement — avec une spécialisation forte en santé qui m'a appris la rigueur : en imagerie médicale, une erreur de pipeline n'est jamais cosmétique.",
+    "intro": "Je suis ingénieur IA  — je conçois des systèmes complets, du modèle au déploiement — avec une spécialisation forte en santé qui m'a appris la rigueur : en imagerie médicale, une erreur de pipeline n'est jamais cosmétique.",
     "paragraphs": [
       "Mon parcours est parti de la vision par ordinateur classique (OpenCV, certification officielle) avant de s'étendre aux architectures de deep learning, aux modèles de fondation (MedSAM), puis aux systèmes agentiques basés sur des LLM. Cette progression m'a donné une vision transversale : je ne suis pas enfermé dans une seule couche de la stack IA.",
       "Ce que je retiens de mes projets en oncologie et en imagerie cérébrale, c'est une discipline scientifique — validation statistique, contrôle des biais, reproductibilité — que j'applique aujourd'hui à tous mes systèmes, y compris mes agents LLM en production.",
@@ -70,7 +70,7 @@
     "bring": [
       "Une culture du déploiement : je pense API et MLOps dès la conception du modèle, pas après.",
       "Une rigueur scientifique héritée du clinique : chaque métrique est validée statistiquement, jamais affichée seule.",
-      "Une polyvalence rare : vision par ordinateur, LLM et systèmes agentiques dans une seule personne.",
+      "Une polyvalence couvrant l'ensemble de la chaîne IA : vision par ordinateur, LLM et systèmes agentiques dans une seule personne.",
       "Une autonomie complète sur des projets de bout en bout, de la donnée brute à l'interface utilisateur."
     ]
   },
@@ -135,7 +135,7 @@
       "foodclf": {
         "title": "Kenya Food Classifier — De la Recherche au Produit",
         "problem": "Faire passer un modèle de classification d'images du notebook de recherche à une application web réellement utilisable.",
-        "solution": "Modèle PyTorch entraîné en précision mixte (AMP), exposé via une API REST FastAPI, avec interface web d'upload et visualisations Grad-CAM pour l'interprétabilité des prédictions.",
+        "solution": "Modèle PyTorch entraîné en précision mixte, exposé via une API REST FastAPI, avec interface web d'upload et visualisations Grad-CAM pour l'interprétabilité des prédictions.",
         "result": "~80% d'accuracy sur 13 catégories de plats kenyans, endpoint /predict documenté, frontend responsive avec barres de confiance.",
         "impact": "Démontre la capacité à livrer un produit IA complet — pas seulement un modèle entraîné, mais un système utilisable.",
         "metrics": ["~80% accuracy / 13 classes", "API REST FastAPI", "Grad-CAM interprétable", "Entraînement AMP"]
